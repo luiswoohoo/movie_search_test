@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Search</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <nav class="flex">
+        <h1>Find your film</h1>
+        <a href="watchlist.html">My Watchlist</a>
+    </nav>
+    <div class="search-bar flex">
+        <div class="search-bar-container flex">
+            <img src="/img/search.png" class="magnifying-glass">
+            <input type="search" id="search-bar" placeholder="Search for a movie" autocomplete="off">
+            <button id="search-btn">Search</button>
+        </div>
+    </div>
+    <main class="flex">
+        <div class="initial-state initial-height flex">
+            <img src="img/film-icon.png" alt="Film strip" class="film-icon">
+            <p>Start exploring</p>
+        </div>
+        <div class="populated-state flex"></div>
+
+    </main>
+</body>
+
+</html>

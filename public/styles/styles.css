@@ -1,0 +1,178 @@
+/* Reset */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    /* background-color: #f0f0f0; */
+    color: #212427;
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Utility */
+.flex {
+    display: flex;
+}
+
+/*  */
+nav {
+    height: 20vh;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('../img/denise-jans-tV80374iytg-unsplash.jpg'), linear-gradient(100deg, #504e4e, #494848);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode:darken; 
+}
+
+h1 {
+    font-size: 2rem;
+    color: #f0f0f0;
+}
+
+.search-bar {
+    justify-content: center;
+    position: relative;
+}
+
+.search-bar-container {
+    position:absolute;
+    top: -20px;
+}
+
+.magnifying-glass {
+    position: inherit;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#search-bar {
+    height: 40px;
+    width: 300px;
+    padding: .75rem .75rem .75rem 2.25rem;
+    border: 1px #D1D5DB solid;
+    border-radius: .5rem 0 0 .5rem;
+    color: #6B7280;
+}
+
+#search-btn {
+    height: 40px;
+    padding: .75rem 1.5rem;
+    border: 1px #D1D5DB solid;
+    border-radius: 0 .5rem .5rem 0;
+    background-color: #F9FAFB;
+    color: #374151;
+    cursor: pointer;
+}
+
+main {
+    flex-direction: column;
+}
+
+.film-icon {
+    width: 100px;
+}
+
+.initial-state {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.initial-height {
+    height: 75vh;
+}
+
+.initial-state p {
+    color: #DFDDDD;
+    text-align: center;
+}
+
+#add-movies {
+    color: #363636;
+}
+
+.populated-state {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+.movie-card {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 1000px;
+    padding: 1.25rem 0;
+    border-bottom: 2px #E5E7EB solid;
+}
+
+.movie-poster {
+    width: 40%;
+    max-width: 250px;
+    padding-right: 1rem;
+}
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.movie-details p {
+    display: inline-block;
+    padding: .25rem .5rem;
+    max-width: 45ch;
+}
+
+.star-emoji {
+    font-size: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.plot {
+    color: #6B7280;
+}
+
+a {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.plus-symbol, .minus-symbol {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .25rem;
+    cursor: pointer;
+}
+
+.plus-img, .check-symbol {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .25rem;
+}
+
