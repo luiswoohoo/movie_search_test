@@ -5,7 +5,8 @@ const qs = require('qs')
 
 const handler = async function (event) {
   // apply our function to the queryStringParameters and assign it to a variable
-  const movie = qs.stringify(event.queryStringParameters)
+  // const movie = qs.stringify(event.queryStringParameters)
+  const movie = event.queryStringParameters.movie
   // console.log('API_PARAMS', API_PARAMS)
   // Get env var values defined in our Netlify site UI
 
