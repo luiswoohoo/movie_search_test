@@ -4,7 +4,8 @@ const axios = require('axios')
 const qs = require('qs')
 
 const handler = async function (event) {
-  const movieId = qs.stringify(event.queryStringParameters)
+  // const movieId = qs.stringify(event.queryStringParameters)
+  const movieId = event.queryStringParameters.movieId
 
   const { API_SECRET, API_URL } = process.env
   const URL = `${API_URL}?i=${movieId}&apikey=${API_SECRET}`
