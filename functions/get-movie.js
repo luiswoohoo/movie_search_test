@@ -11,9 +11,12 @@ const handler = async function (event) {
   try {
     const { data } = await axios.get(URL)
 
+    const { Poster, Title, imdbRating, Runtime, Year, imdbID, Rated, Genre, Plot } = data
+    const dataShort = { Poster, Title, imdbRating, Runtime, Year, imdbID, Rated, Genre, Plot }
+
     return {
       statusCode: 200,
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataShort),
     }
   } catch (error) {
     const { data, headers, status, statusText } = error.response
