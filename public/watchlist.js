@@ -20,7 +20,7 @@ function renderStoredMoviesHtml(storedMoviesArray) {
     for (const movie of storedMoviesArray) {
       const movieObj = JSON.parse(movie)
       if (movieObj.Poster === 'N/A') {
-        movieObj.Poster = '/img/film-icon.png'
+        movieObj.Poster = '/img/film.svg'
       }
       populatedState.innerHTML += `
             <div class="movie-card">
@@ -35,7 +35,7 @@ function renderStoredMoviesHtml(storedMoviesArray) {
                     <div class="md-row-2">
                         <p class="runtime">${movieObj.Runtime}</p>
                         <p class="year">${movieObj.Year}</p>
-                        <p class="watchlist"><img src="img/minus.png" class="minus-symbol removeMovie" data-movieID="${movieObj.imdbID}">Remove</p>
+                        <p class="watchlist"><img src="img/minus.svg" class="minus-symbol removeMovie" data-movieID="${movieObj.imdbID}">Remove</p>
                     </div>
                     <div class="md-row-3">
                         <p class="rated">${movieObj.Rated}</p>

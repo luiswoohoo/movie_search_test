@@ -60,7 +60,7 @@ function renderMovieHtml(movieDetailsArray) {
 
   for (const movie of movieDetailsArray) {
     if (movie.Poster === 'N/A') {
-      movie.Poster = '/img/film-icon.png'
+      movie.Poster = '/img/film.svg'
     }
 
     populatedState.innerHTML += `
@@ -76,7 +76,7 @@ function renderMovieHtml(movieDetailsArray) {
                 <div class="md-row-2">
                     <p class="runtime">${movie.Runtime}</p>
                     <p class="year">${movie.Year}</p>
-                    <p class="watchlist"><img src="img/plus.png" class="plus-symbol addMovie" data-movieID="${movie.imdbID}">Watchlist</p>
+                    <p class="watchlist"><img src="img/plus.svg" class="plus-symbol addMovie" data-movieID="${movie.imdbID}">Watchlist</p>
                 </div>
                 <div class="md-row-3">
                     <p class="rated">${movie.Rated}</p>
@@ -107,7 +107,7 @@ function saveMovieData() {
   this.classList.add('check-symbol')
   this.classList.remove('plus-symbol')
   this.removeEventListener('click', saveMovieData)
-  this.attributes.src.nodeValue = 'img/check.png'
+  this.attributes.src.nodeValue = 'img/check.svg'
 
   const movieID = this.dataset.movieid
 
