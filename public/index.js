@@ -8,6 +8,7 @@ let globalMoviesArray = []
 async function getMovies() {
   globalMoviesArray = []
   try {
+    renderLoaderAnimation()
     const movieIds = await getMovieIds()
     const detailedMovieData = await getMovieDetails(movieIds)
     renderMovieHtml(detailedMovieData)
@@ -42,6 +43,12 @@ async function getMovieDetails(movieIdsArray) {
     globalMoviesArray.push(movieDetails)
   }
   return movies
+}
+
+function renderLoaderAnimation() {
+    initialState.innerHTML = ''
+    initialState.classList.remove('initial-height')
+    populatedState.innerHTML = '<div id="loader"></div>'
 }
 
 function renderMovieHtml(movieDetailsArray) {
