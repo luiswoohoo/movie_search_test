@@ -19,7 +19,7 @@ async function getMovies() {
 }
 
 async function getMovieIds() {
-  const movie = searchBar.value.replace(/\s+/g, '+')
+  const movie = searchBar.value.trim().replace(/\s+/g, '+')
 
   const searchURL = `/.netlify/functions/get-movie-ids?movie=${movie}`
 
@@ -46,9 +46,9 @@ async function getMovieDetails(movieIdsArray) {
 }
 
 function renderLoaderAnimation() {
-    initialState.innerHTML = ''
-    initialState.classList.remove('initial-height')
-    populatedState.innerHTML = '<div id="loader"></div>'
+  initialState.innerHTML = ''
+  initialState.classList.remove('initial-height')
+  populatedState.innerHTML = '<div id="loader"></div>'
 }
 
 function renderMovieHtml(movieDetailsArray) {
