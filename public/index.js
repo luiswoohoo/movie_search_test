@@ -6,59 +6,57 @@ const populatedState = document.querySelector('.populated-state')
 let globalMoviesArray = []
 
 async function getMovies() {
-    globalMoviesArray = []
-    try {
-        const movieIds = await getMovieIds()
-        const detailedMovieData = await getMovieDetails(movieIds)
-        renderMovieHtml(detailedMovieData)
-        addWatchListEvent()
-    } catch (error) {
-        renderSearchErrorHtml()
-    }
+  globalMoviesArray = []
+  try {
+    const movieIds = await getMovieIds()
+    const detailedMovieData = await getMovieDetails(movieIds)
+    renderMovieHtml(detailedMovieData)
+    addWatchListEvent()
+  } catch (error) {
+    renderSearchErrorHtml()
+  }
 }
 
 async function getMovieIds() {
-    const movie = searchBar.value.replace(/\s+/g, '+')
+  const movie = searchBar.value.replace(/\s+/g, '+')
 
-    const searchURL = `/.netlify/functions/get-movie-ids?movie=${movie}`
-    
-    const res = await fetch(searchURL)
-    const searchData = await res.json()
+  const searchURL = `/.netlify/functions/get-movie-ids?movie=${movie}`
 
-    if (searchData.Response === 'False') {
-        renderSearchErrorHtml()
-    } else {
-        const movieIds = searchData.Search.map((movie) => movie.imdbID)
-        return movieIds
-    }
+  const res = await fetch(searchURL)
+  const searchData = await res.json()
 
+  if (searchData.Response === 'False') {
+    renderSearchErrorHtml()
+  } else {
+    const movieIds = searchData.Search.map((movie) => movie.imdbID)
+    return movieIds
+  }
 }
 
 async function getMovieDetails(movieIdsArray) {
-    let movies = []
-    for (const movieId of movieIdsArray) {
-
-        const res = await fetch(`/.netlify/functions/get-movie?movieId=${movieId}`)
-        const movieDetails = await res.json()
-        movies.push(movieDetails)
-        globalMoviesArray.push(movieDetails)
-    }
-    return movies
+  let movies = []
+  for (const movieId of movieIdsArray) {
+    const res = await fetch(`/.netlify/functions/get-movie?movieId=${movieId}`)
+    const movieDetails = await res.json()
+    movies.push(movieDetails)
+    globalMoviesArray.push(movieDetails)
+  }
+  return movies
 }
 
 function renderMovieHtml(movieDetailsArray) {
-    // accept array of objects
-    // render desired information
-    initialState.innerHTML = ''
-    initialState.classList.remove('initial-height')
-    populatedState.innerHTML = ''
+  // accept array of objects
+  // render desired information
+  initialState.innerHTML = ''
+  initialState.classList.remove('initial-height')
+  populatedState.innerHTML = ''
 
-    for (const movie of movieDetailsArray) {
-        if (movie.Poster === "N/A") {
-            movie.Poster = "/img/film-icon.png"
-        }
+  for (const movie of movieDetailsArray) {
+    if (movie.Poster === 'N/A') {
+      movie.Poster = '/img/film-icon.png'
+    }
 
-        populatedState.innerHTML += `
+    populatedState.innerHTML += `
         <div class="movie-card">
             <div class="movie-poster">
                 <img src="${movie.Poster}" alt="movie poster" >
@@ -82,45 +80,40 @@ function renderMovieHtml(movieDetailsArray) {
                 </div>
             </div>
         </div>`
-    }
-
-
+  }
 }
 
 function renderSearchErrorHtml() {
-    initialState.classList.add('initial-height')
-    initialState.innerHTML = `<p>Unable to find what you're looking for.<br>Please try another search.</p>`
-    populatedState.innerHTML = ''
+  initialState.classList.add('initial-height')
+  initialState.innerHTML = `<p>Unable to find what you're looking for.<br>Please try another search.</p>`
+  populatedState.innerHTML = ''
 }
 
 function addWatchListEvent() {
-    const watchlistBtns = document.querySelectorAll('.addMovie')
-    for (const wlBtn of watchlistBtns) {
-        wlBtn.addEventListener('click', saveMovieData)
-    }
+  const watchlistBtns = document.querySelectorAll('.addMovie')
+  for (const wlBtn of watchlistBtns) {
+    wlBtn.addEventListener('click', saveMovieData)
+  }
 }
 
 function saveMovieData() {
-    console.log(this)
-    console.log(this.attributes.src)
-    this.classList.add("check-symbol")
-    this.classList.remove("plus-symbol")
-    this.removeEventListener('click', saveMovieData)
-    this.attributes.src.nodeValue = "img/check.png"
+  this.classList.add('check-symbol')
+  this.classList.remove('plus-symbol')
+  this.removeEventListener('click', saveMovieData)
+  this.attributes.src.nodeValue = 'img/check.png'
 
-    const movieID = this.dataset.movieid
+  const movieID = this.dataset.movieid
 
-    const movieObj = globalMoviesArray.find( (movie) => movie.imdbID === movieID )
-    console.log(movieObj)
+  const movieObj = globalMoviesArray.find((movie) => movie.imdbID === movieID)
 
-    const movieData = JSON.stringify(movieObj)
+  const movieData = JSON.stringify(movieObj)
 
-    localStorage.setItem(movieID, movieData)
+  localStorage.setItem(movieID, movieData)
 }
 
 searchBtn.addEventListener('click', getMovies)
 searchBar.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        searchBtn.click()
-    }
+  if (e.key === 'Enter') {
+    searchBtn.click()
+  }
 })

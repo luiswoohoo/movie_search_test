@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Watchlist</title>
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
     <script src="watchlist.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="flex">
-        <h1>My Watchlist</h1>
-        <a href="index.html">Search for movies</a>
+      <h1>My Watchlist</h1>
+      <a href="index.html">Search for movies</a>
     </nav>
-    
+
     <main class="flex">
-        <div class="initial-state initial-height flex">
-            <p>Your watchlist is looking a little empty...</p>
-            <p><a href="index.html" id="add-movies"><img src="img/plus.png" class="plus-img">Let's add some movies!</a></p>
-        </div>
-        <div class="populated-state flex"></div>
-
+      <div class="initial-state initial-height flex">
+        <p>Your watchlist is looking a little empty...</p>
+        <p>
+          <a href="index.html" id="add-movies"
+            ><img src="img/plus.png" class="plus-img" />Let's add some
+            movies!</a
+          >
+        </p>
+      </div>
+      <div class="populated-state flex"></div>
     </main>
-</body>
-
+  </body>
 </html>

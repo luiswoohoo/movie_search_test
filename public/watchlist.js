@@ -1,32 +1,28 @@
 const initialState = document.querySelector('.initial-state')
 const populatedState = document.querySelector('.populated-state')
 
-
 function getStoredMovies() {
-    let storedMovies = []
+  let storedMovies = []
 
-    for (let i = 0; i < localStorage.length; i++) {
-        const movieData = localStorage.getItem(localStorage.key(i))
-        storedMovies.push(movieData)
-    }
-    return storedMovies
+  for (let i = 0; i < localStorage.length; i++) {
+    const movieData = localStorage.getItem(localStorage.key(i))
+    storedMovies.push(movieData)
+  }
+  return storedMovies
 }
 
-
 function renderStoredMoviesHtml(storedMoviesArray) {
-    if (storedMoviesArray.length) {
+  if (storedMoviesArray.length) {
+    initialState.innerHTML = ''
+    initialState.classList.remove('initial-height')
+    populatedState.innerHTML = ''
 
-        initialState.innerHTML = ''
-        initialState.classList.remove('initial-height')
-        populatedState.innerHTML = ''
-
-        for (const movie of storedMoviesArray) {
-            console.log(movie)
-            const movieObj = JSON.parse(movie)
-            if (movieObj.Poster === "N/A") {
-                movieObj.Poster = "/img/film-icon.png"
-            }
-            populatedState.innerHTML += `
+    for (const movie of storedMoviesArray) {
+      const movieObj = JSON.parse(movie)
+      if (movieObj.Poster === 'N/A') {
+        movieObj.Poster = '/img/film-icon.png'
+      }
+      populatedState.innerHTML += `
             <div class="movie-card">
                 <div class="movie-poster">
                     <img src="${movieObj.Poster}" alt="movie poster" >
@@ -50,28 +46,24 @@ function renderStoredMoviesHtml(storedMoviesArray) {
                     </div>
                 </div>
             </div>`
-        }
-
     }
+  }
 
-    addWatchListEvent()
+  addWatchListEvent()
 }
 
 function addWatchListEvent() {
-    const watchlistBtns = document.querySelectorAll('.removeMovie')
-    for (const wlBtn of watchlistBtns) {
-        wlBtn.addEventListener('click', removeMovieData)
-    }
+  const watchlistBtns = document.querySelectorAll('.removeMovie')
+  for (const wlBtn of watchlistBtns) {
+    wlBtn.addEventListener('click', removeMovieData)
+  }
 }
 
 function removeMovieData() {
-    const movieID = this.dataset.movieid
-    
-    console.log(movieID)
-    
-    localStorage.removeItem(movieID)
-    location.reload()
+  const movieID = this.dataset.movieid
 
+  localStorage.removeItem(movieID)
+  location.reload()
 }
 
 const storedMovies = getStoredMovies()
