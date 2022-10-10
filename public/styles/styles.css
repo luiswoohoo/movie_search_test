@@ -119,7 +119,7 @@ main {
     width: 80%;
     max-width: 1000px;
     padding: 1.25rem 0;
-    border-bottom: 2px #E5E7EB solid;
+    border-bottom: 2px var(--search-border-color) solid;
 }
 
 .movie-poster {
@@ -159,18 +159,19 @@ a {
     color: #f0f0f0;
 }
 
-.plus-symbol, .minus-symbol {
-    width: 20px;
-    height: 20px;
+.plus-symbol,
+.minus-symbol {
+    width: 25px;
+    height: 25px;
     display: inline-block;
     vertical-align: middle;
     margin-right: .25rem;
     cursor: pointer;
 }
 
-.plus-img, .check-symbol {
-    width: 20px;
-    height: 20px;
+.check-symbol {
+    width: 25px;
+    height: 25px;
     display: inline-block;
     vertical-align: middle;
     margin-right: .25rem;
@@ -194,4 +195,25 @@ a {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+   /* Dark mode */
+   @media (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #f0f0f0;
+        --accent-color: #9d9d9d;
+        --accent-color-2: #363636;
+        --header-color: #f0f0f0;
+        --main-bg-color: #0f0f0f;
+        --search-bg-color: #363636;
+        --search-border-color: #494949;
+      }
+    
+    .film-icon,
+    .minus-symbol,
+    .plus-symbol,
+    .check-symbol,
+    .magnifying-glass {
+    filter: invert(.9);
+    }
   }
