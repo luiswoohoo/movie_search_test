@@ -53,6 +53,23 @@ h1 {
     color: var(--header-color);
 }
 
+.nav-btn {
+    height: 40px;
+    padding: .75rem 1.5rem;
+    border: 1px var(--search-border-color) solid;
+    border-radius: .5rem;
+    background-color: var(--main-bg-color);
+    color: var(--header-color);
+    cursor: pointer;
+    /* opacity: .75; */
+}
+
+a {
+    text-decoration: none;
+    color: var(--header-color);
+    /* border-bottom: 2px solid var(--header-color); */
+}
+
 .search-bar {
     justify-content: center;
     position: relative;
@@ -163,11 +180,6 @@ main {
 
 .plot {
     color: var(--accent-color);
-}
-
-a {
-    text-decoration: none;
-    color: var(--header-color);
 }
 
 .plus-symbol,
